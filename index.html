@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+<!-- W tagu <html> deklarujemy globalny język dokumentu. Jeśli jakieś elementy na stronie będą zawierały tekst w innym języku, oznaczamy lokalny język dla konkretnego tagu. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="Joanna Hornung">
+    <meta name='viewport' content='width=device-width, minimum-scale=1.0, maximum-scale=3.0, user-scalable=no' />
+    <title lang="en-EN">Template Accessibility</title>
+    <!--<link type="text/css" rel="stylesheet" property="stylesheet" href="">-->
+    <style></style>
+    <script></script>
+</head>
+
+<body>
+    <div id="template-accessibility">
+        <h2 lang="en-EN">Product card title</h2>
+        <h3 lang="en-EN">Section title</h3>
+        <!-- Ukryte wizualnie tagi <h2> i <h3> najczęściej zawierają tekst w języku angielskim. Należy oznaczyć język w tagu. -->
+
+        <div>
+            <!-- Nie używamy nagłówków <h1>. -->
+
+            <h2 tabindex="0">Tytuł karty produktowej (najczęściej występuje tylko w kv)</h2>
+            <h3 tabindex="0">Tytuły poszczególnych sekcji (komponentów)</h3>
+
+            <!--
+                Na każdy element, którego zawartość ma zostać odczytana przez czytnik dla osób niewidomych i który ma być dostępny z poziomu klawisza 'Tab', należy nałożyc atrybut tabindex.
+                Interaktywność elementów, wywoływana przez event 'click', powinna być dostępna również przez event 'keypress'.
+            -->
+
+            <h4>Podtytuł sekcji</h4>
+            <h5>Podtytuł kolejnego poziomu</h5>
+            <h6>Podtytuł ostatniego poziomu</h6>
+
+            <ul>
+                <!--
+                    Lista musi zawierać minimum dwa elementy, zawierające wypunktowane informacje. Nie tworzymy list jednoelementowych.
+                    Nie tworzymy "list fałszywych", czyli elementów wyglądających jak lista, ale niebędących nią w kodzie HTML. Efekt wizualny jest niemożliwy do odczytania przez osoby niewidome.
+                    Powyżej listy powinien widnieć jej nagłówek/tytuł wraz z dwukropkiem. Lista może być uporządkowana lub nieuporządkowana. Jeśli kolejne elementy listy oznaczone są numerami, należy zastosować listę uporządkowaną. Oznaczenie elementów listy numerami powinno być uzasadnione.
+                -->
+
+                <li>Element listy</li>
+                <!--
+                    Jeśli element listy ma być jednocześnie linkiem zewnętrznym należy umieścić w nim tag <a>. Jeśli ma być przyciskiem wewnętrzym używamy tagu <button>.
+                -->
+
+                <li>Element listy</li>
+                <li>Element listy</li>
+                <li>Element listy</li>
+            </ul>
+
+            <table summary="[Opis treści tabeli]">
+                <!--
+                    Tabele służą tylko i wyłącznie do prezentowania typowo tabelarycznych treści.
+                    Nie tworzymy stron/kart na tabelach.
+                    Nie stosujemy tabel do celów poprawienia wyglądu stron/kart.
+                    Nie tworzymy sztucznych tworów takich, jak element wyglądający na stronie/karcie jak jedna tabela, a będący w rzeczywistości (w kodzie) dwiema tabelami (overflowing table).
+                -->
+                <caption>Ukryty wizualnie nagłówek tabeli</caption>
+                <!--
+                    Zawartość tagu <caption> jest odczytywana przez czytniki dla osób niewidomych.
+                -->
+                <thead>
+                    <!--
+                        Tabela powinna zawierać wszystkie elementy semantycznie poprawnej tabeli
+                    -->
+                    <tr>
+                        <th>Nagłówek 1</th>
+                        <th>Nagłówek 2</th>
+                        <th>Nagłówek 3</th>
+                        <th>Nagłówek 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Komórka tabeli 1</td>
+                        <td>Komórka tabeli 2</td>
+                        <td>Komórka tabeli 3</td>
+                        <td>Komórka tabeli 4</td>
+                    </tr>
+                    <tr>
+                        <td>Komórka tabeli 5</td>
+                        <td>Komórka tabeli 6</td>
+                        <td>Komórka tabeli 6</td>
+                        <td>Komórka tabeli 7</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>Zwykły paragraf zawierający <q>krótki cytat</q> o długosci kilku do kilkunastu słów.</p>
+            <blockquote>"Cały paragraf będący cytatem. Cały paragraf będący cytatem. Cały paragraf będący cytatem. Cały paragraf będący cytatem. Cały paragraf będący cytatem."</blockquote>
+
+            <img src="img/image.jpg" alt="" title="" tabindex="0" />
+            <!--
+                Należy pamiętać o tym, że alt dostępny jest dla wszystkich użytkowników strony/karty, niezależnie od sposobu przeglądania/słuchania treści.
+            -->
+
+            <a href="#section1" title="Opis działania linku">Link do elementu w obrębie tej samej strony</a>
+            <!--
+                Reader odczytuje powyższy kod jako "Link do elementu w obrębie tej samej strony. Link wewnętrzny."
+            -->
+            <a href="index.html" title="Opis działania linku">Link do dokumentu poza aktualnym dokumentem.</a>
+            <!--
+                Reader odczytuje powyższy kod jako "Link do dokumentu poza aktualnym dokumentem. Link."
+            -->
+            <button href="#" title="Opis działania guzika">Guzik</button>
+            <!--
+                Reader odczytuje powyższy kod jako "Guzik. Przycisk."
+            -->
+
+        </div>
+    </div>
+    <script></script>
+</body>
+
+</html>
